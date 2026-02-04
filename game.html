@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Valentine’s Quest 💘</title>
+  <style>
+    :root{
+      --bg1:#ffe6ef;
+      --bg2:#fff1f7;
+      --card:#ffffffcc;
+      --ink:#222;
+      --muted:#555;
+      --yes:#ff2d6f;
+      --no:#6b7280;
+      --shadow: 0 18px 60px rgba(0,0,0,.14);
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      overflow:hidden;
+      background: radial-gradient(1100px 700px at 20% 10%, var(--bg2), var(--bg1));
+    }
+
+    /* Floating background hearts */
+    .bg-hearts{
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.25;
+      overflow:hidden;
+      z-index:0;
+    }
+    .bg-hearts span{
+      position:absolute;
+      font-size: clamp(16px, 3vw, 34px);
+      filter: blur(.2px);
+      animation: floatUp linear infinite;
+      user-select:none;
+    }
+    @keyframes floatUp{
+      from{ transform: translateY(110vh) rotate(0deg); }
+      to  { transform: translateY(-20vh) rotate(360deg); }
+    }
+
+    #fx{
+      position:fixed; inset:0;
+      width:100%; height:100%;
+      pointer-events:none;
+      z-index:10;
+    }
+
+    .wrap{
+      position:relative;
+      height:100%;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      z-index:1;
+    }
+
+    .card{
+      width:min(740px, 94vw);
+      padding:28px 22px;
+      border-radius:26px;
+      background:var(--card);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      text-align:center;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin:0 0 14px;
+      font-size: clamp(14px, 2.2vw, 18px);
+      color:var(--muted);
+    }
+
+    .stage{
+      position:relative;
+      height: 320px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.35));
+      border: 1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+      margin-top: 14px;
+    }
+
+    .hud{
+      position:absolute;
+      top:10px; left:12px; right:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      z-index:2;
+      pointer-events:none;
+    }
+    .meter{
+      pointer-events:none;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background: rgba(255,255,255,.75);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:999px;
+      padding:8px 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.08);
+      max-width: 70%;
+    }
+    .bar{
+      height:10px;
+      flex:1;
+      min-width: 140px;
+      background: rgba(0,0,0,.08);
+      border-radius: 999px;
+      overflow:hidden;
+    }
+    .bar > i{
+      display:block;
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, rgba(255,45,111,.9), rgba(255,115,190,.9));
+      border-radius:999px;
+      transition: width .18s ease;
+    }
+    .count{
+      white-space:nowrap;
+      font-size: 13px;
+      opacity:.85;
+    }
+
+    /* Buttons */
+    .btn{
+      border:0;
+      padding:14px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing:.2px;
+      cursor:pointer;
+      user-select:none;
+      touch-action: manipulation;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+      transition: transform .08s ease, filter .2s ease, opacity .2s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:16px;
+      line-height:1;
+      position:absolute;
+      z-index:3;
+    }
+    .btn:active{ transform: scale(.98); }
+
+    #yesBtn{
+      background: var(--yes);
+      color:white;
+      left: 50%;
+      top: 72%;
+      transform: translate(-50%, -50%);
+      opacity:0;
+      pointer-events:none;
+      filter: saturate(.9);
+    }
+    #yesBtn.ready{
+      opacity:1;
+      pointer-events:auto;
+      filter: none;
+    }
+
+    #noBtn{
+      background: var(--no);
+      color:white;
+      left: 18%;
+      top: 72%;
+    }
+
+    /* Clickable roaming heart */
+    #heart{
+      position:absolute;
+      left: 58%;
+      top: 46%;
+      width: 70px;
+      height: 70px;
+      display:grid;
+      place-items:center;
+      font-size: 34px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 14px 30px rgba(0,0,0,.12);
+      cursor:pointer;
+      user-select:none;
+      touch-action: manipulation;
+      z-index:4;
+      transition: transform .12s ease;
+    }
+    #heart:active{ transform: scale(.96); }
+
+    .toast{
+      margin-top: 12px;
+      min-height: 22px;
+      font-weight: 700;
+      color: rgba(20,20,20,.85);
+    }
+
+    /* Success overlay */
+    .overlay{
+      position:fixed;
+      inset:0;
+      display:none;
+      place-items:center;
+      z-index:20;
+      background: radial-gradient(900px 600px at 50% 35%, rgba(255,255,255,.92), rgba(255,230,239,.92));
+      text-align:center;
+      padding:24px;
+    }
+    .overlay.show{ display:grid; }
+    .big{
+      width:min(760px, 92vw);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 20px 70px rgba(0,0,0,.14);
+      border-radius: 28px;
+      padding: 28px 22px;
+    }
+    .big h2{
+      margin:0 0 10px;
+      font-size: clamp(28px, 4.6vw, 46px);
+    }
+    .big p{
+      margin:0 0 14px;
+      font-size: clamp(14px, 2.2vw, 18px);
+      color: rgba(0,0,0,.85);
+    }
+    .small{
+      opacity:.75;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-hearts" aria-hidden="true" id="bgHearts"></div>
+  <canvas id="fx"></canvas>
+
+  <div class="wrap">
+    <div class="card">
+      <h1>Valentine’s Quest 💘</h1>
+      <p class="sub">Catch the roaming heart <strong>5</strong> times to unlock the real question.</p>
+
+      <div class="stage" id="stage">
+        <div class="hud">
+          <div class="meter">
+            <span>Love Power</span>
+            <div class="bar" aria-hidden="true"><i id="barFill"></i></div>
+            <span class="count" id="countText">0/5</span>
+          </div>
+          <div class="count" id="hintText">Tap the heart!</div>
+        </div>
+
+        <div id="heart" role="button" aria-label="Catch the heart">💗</div>
+
+        <button class="btn" id="yesBtn">YES ❤️</button>
+        <button class="btn" id="noBtn">NO 🙃</button>
+      </div>
+
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="big">
+      <h2>You got me 🥰</h2>
+      <p><strong>Do you want to be my Valentine?</strong></p>
+      <p>You said <strong>YES</strong> 💖</p>
+      <div class="small">(This moment is officially adorable.)</div>
+    </div>
+  </div>
+
+<script>
+(() => {
+  const stage = document.getElementById('stage');
+  const heart = document.getElementById('heart');
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn  = document.getElementById('noBtn');
+  const toast  = document.getElementById('toast');
+  const overlay = document.getElementById('overlay');
+  const barFill = document.getElementById('barFill');
+  const countText = document.getElementById('countText');
+  const hintText = document.getElementById('hintText');
+  const bgHearts = document.getElementById('bgHearts');
+
+  // ---- Background floating hearts
+  const bgIcons = ["💗","💖","💘","💕","💞"];
+  for (let i=0; i<18; i++){
+    const s = document.createElement('span');
+    s.textContent = bgIcons[Math.floor(Math.random()*bgIcons.length)];
+    s.style.left = Math.floor(Math.random()*100) + "vw";
+    s.style.animationDuration = (10 + Math.random()*14) + "s";
+    s.style.animationDelay = (-Math.random()*14) + "s";
+    s.style.opacity = (0.25 + Math.random()*0.35).toFixed(2);
+    bgHearts.appendChild(s);
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  const rand  = (min, max) => min + Math.random() * (max - min);
+
+  // ---- Progress
+  const TARGET = 5;
+  let caught = 0;
+
+  function setProgress(n){
+    caught = clamp(n, 0, TARGET);
+    const pct = (caught / TARGET) * 100;
+    barFill.style.width = pct + "%";
+    countText.textContent = `${caught}/${TARGET}`;
+
+    if (caught >= TARGET){
+      yesBtn.classList.add('ready');
+      hintText.textContent = "Unlocked! Tap YES 💝";
+      toast.textContent = "Love Power MAXED. The question awaits…";
+    } else {
+      yesBtn.classList.remove('ready');
+      hintText.textContent = "Tap the heart!";
+    }
+  }
+
+  // ---- Place an element randomly inside stage with padding
+  function placeInside(el, awayFromPoint = null, minDist = 0){
+    const s = stage.getBoundingClientRect();
+    const b = el.getBoundingClientRect();
+
+    const pad = 12;
+    const maxX = s.width  - b.width  - pad;
+    const maxY = s.height - b.height - pad;
+
+    let x=pad, y=pad, tries=0;
+    while (tries < 30){
+      x = pad + Math.random() * maxX;
+      y = pad + Math.random() * maxY;
+      tries++;
+
+      if (!awayFromPoint) break;
+
+      const cx = s.left + x + b.width/2;
+      const cy = s.top  + y + b.height/2;
+      const dx = cx - awayFromPoint.x;
+      const dy = cy - awayFromPoint.y;
+      if (Math.hypot(dx, dy) >= minDist) break;
+    }
+
+    el.style.left = x + "px";
+    el.style.top  = y + "px";
+  }
+
+  // ---- Roaming heart logic
+  let roamTimer = null;
+
+  function hopHeart(awayFromEvent = null){
+    const p = awayFromEvent
+      ? { x: awayFromEvent.clientX ?? (awayFromEvent.touches && awayFromEvent.touches[0]?.clientX),
+          y: awayFromEvent.clientY ?? (awayFromEvent.touches && awayFromEvent.touches[0]?.clientY) }
+      : null;
+
+    placeInside(heart, (p && p.x) ? p : null, 140);
+  }
+
+  function startRoam(){
+    stopRoam();
+    roamTimer = setInterval(() => hopHeart(null), 900);
+  }
+  function stopRoam(){
+    if (roamTimer) clearInterval(roamTimer);
+    roamTimer = null;
+  }
+
+  // ---- Catch heart
+  const catchLines = [
+    "Caught! 💗",
+    "That one was cute.",
+    "Ok, you’re fast 😳",
+    "Love Power rising…",
+    "One more step closer 💘",
+    "This heart is blushing."
+  ];
+  let lineIdx = 0;
+
+  function caughtHeart(ev){
+    ev.preventDefault?.();
+    if (caught >= TARGET) {
+      toast.textContent = "Already unlocked. Tap YES 💝";
+      return;
+    }
+    setProgress(caught + 1);
+    toast.textContent = catchLines[lineIdx % catchLines.length];
+    lineIdx++;
+
+    // small burst at heart position
+    const r = heart.getBoundingClientRect();
+    burstMini(r.left + r.width/2, r.top + r.height/2);
+
+    // Jump immediately so it feels alive
+    hopHeart(ev);
+  }
+
+  heart.addEventListener('click', caughtHeart);
+  heart.addEventListener('touchstart', caughtHeart, { passive:false });
+  heart.addEventListener('pointerdown', (e) => { /* makes it responsive on some devices */ });
+
+  // ---- NO button runs away (always)
+  const noLines = [
+    "Nope 😼",
+    "Not reachable.",
+    "That button is shy.",
+    "Nice try!",
+    "Plot twist: only YES works."
+  ];
+  let noIdx = 0;
+
+  function fleeNo(ev){
+    ev.preventDefault?.();
+    toast.textContent = noLines[noIdx % noLines.length];
+    noIdx++;
+
+    const p = { x: ev.clientX ?? (ev.touches && ev.touches[0]?.clientX), y: ev.clientY ?? (ev.touches && ev.touches[0]?.clientY) };
+    placeInside(noBtn, (p && p.x) ? p : null, 180);
+  }
+
+  noBtn.addEventListener('mouseenter', fleeNo);
+  noBtn.addEventListener('click', fleeNo);
+  noBtn.addEventListener('touchstart', fleeNo, { passive:false });
+  noBtn.addEventListener('pointerdown', fleeNo);
+
+  // ---- YES click -> overlay + big celebration
+  yesBtn.addEventListener('click', () => {
+    if (!yesBtn.classList.contains('ready')) return;
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden', 'false');
+    burstCelebration();
+    stopRoam();
+  });
+
+  // ---- Canvas FX (confetti + hearts)
+  const canvas = document.getElementById('fx');
+  const ctx = canvas.getContext('2d');
+  let animId = null;
+  const particles = [];
+
+  function resize(){
+    const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+    canvas.width  = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function addConfetti(cx, cy, count){
+    for (let i=0; i<count; i++){
+      particles.push({
+        kind:'confetti',
+        x:cx, y:cy,
+        vx: rand(-6, 6),
+        vy: rand(-10, -2),
+        g: 0.22,
+        life: rand(65, 120),
+        rot: rand(0, Math.PI),
+        vr: rand(-0.25, 0.25),
+        size: rand(6, 11),
+        hue: Math.floor(rand(325, 360))
+      });
+    }
+  }
+
+  function addHearts(cx, cy, count){
+    for (let i=0; i<count; i++){
+      particles.push({
+        kind:'heart',
+        x:cx, y:cy,
+        vx: rand(-4.6, 4.6),
+        vy: rand(-11, -3),
+        g: 0.18,
+        life: rand(85, 150),
+        size: rand(10, 18),
+        wobble: rand(0, Math.PI*2),
+        hue: Math.floor(rand(330, 360))
+      });
+    }
+  }
+
+  function drawHeart(x, y, size, hue, tilt){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(tilt);
+    ctx.scale(size/18, size/18);
+    ctx.beginPath();
+    ctx.moveTo(0, 6);
+    ctx.bezierCurveTo(0, -2, -10, -2, -10, 6);
+    ctx.bezierCurveTo(-10, 14, 0, 18, 0, 24);
+    ctx.bezierCurveTo(0, 18, 10, 14, 10, 6);
+    ctx.bezierCurveTo(10, -2, 0, -2, 0, 6);
+    ctx.closePath();
+    ctx.fillStyle = `hsla(${hue}, 90%, 55%, 0.95)`;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function step(){
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+
+    for (let i=particles.length-1; i>=0; i--){
+      const p = particles[i];
+      p.life -= 1;
+      p.vy += p.g;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.kind === 'confetti'){
+        p.rot += p.vr;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = `hsla(${p.hue}, 90%, 55%, 0.9)`;
+        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.65);
+        ctx.restore();
+      } else {
+        p.wobble += 0.15;
+        const tilt = Math.sin(p.wobble) * 0.25;
+        drawHeart(p.x, p.y, p.size, p.hue, tilt);
+      }
+
+      if (p.life <= 0 || p.y > window.innerHeight + 60){
+        particles.splice(i,1);
+      }
+    }
+
+    if (particles.length){
+      animId = requestAnimationFrame(step);
+    } else {
+      animId = null;
+      ctx.clearRect(0,0,canvas.width, canvas.height);
+    }
+  }
+
+  function runFX(){
+    if (!animId) step();
+  }
+
+  function burstMini(x, y){
+    addConfetti(x, y, 18);
+    addHearts(x, y, 6);
+    runFX();
+  }
+
+  function burstCelebration(){
+    const cx = window.innerWidth * 0.5;
+    const cy = window.innerHeight * 0.42;
+
+    addConfetti(cx, cy, 160);
+    addHearts(cx, cy, 70);
+
+    setTimeout(() => { addConfetti(cx - 190, cy + 40, 95); addHearts(cx - 190, cy + 40, 35); runFX(); }, 140);
+    setTimeout(() => { addConfetti(cx + 190, cy + 40, 95); addHearts(cx + 190, cy + 40, 35); runFX(); }, 260);
+
+    runFX();
+  }
+
+  // ---- Init placements after first layout
+  requestAnimationFrame(() => {
+    setProgress(0);
+    placeInside(noBtn, null, 0);
+    hopHeart(null);
+    startRoam();
+    toast.textContent = "Catch the heart to power up YES 💗";
+  });
+})();
+</script>
+</body>
+</html>
