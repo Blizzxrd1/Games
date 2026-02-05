@@ -1,274 +1,446 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Competitive Landscape | UK Influencer Awards & Creator Events</title>
-  <style>
-    :root{
-      --bg:#0b1220;--card:#121c33;--card2:#0f1730;--txt:#eaf0ff;--mut:#b8c4e6;
-      --a:#7aa7ff;--b:#7dffcf;--c:#ffcf6a;--d:#ff7aa7;--line:#243357;
-      --ok:#49e39c;--warn:#ffd36a;--bad:#ff7a7a;
-      --r:16px;--sh:0 16px 40px rgba(0,0,0,.35);
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:var(--sans);background:radial-gradient(1200px 600px at 20% -10%, #1b2b59 0%, transparent 60%),radial-gradient(1000px 700px at 90% 10%, #123a46 0%, transparent 55%),var(--bg);color:var(--txt)}
-    a{color:var(--a);text-decoration:none}
-    .wrap{max-width:1200px;margin:0 auto;padding:28px 18px 80px}
-    header{display:flex;gap:14px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
-    .title h1{margin:0;font-size:28px;letter-spacing:.2px}
-    .title p{margin:6px 0 0;color:var(--mut);max-width:780px;line-height:1.5}
-    .chips{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .chip{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:8px 10px;border-radius:999px;color:var(--mut);font-size:12px}
-    .grid{display:grid;gap:16px;margin-top:18px}
-    .cols2{grid-template-columns:1.15fr .85fr}
-    .cols3{grid-template-columns:repeat(3,1fr)}
-    @media (max-width:980px){.cols2,.cols3{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
-    .card .hd{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.12)}
-    .card .hd b{font-size:14px}
-    .card .bd{padding:16px}
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    @media (max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)}}
-    .kpi{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:12px}
-    .kpi .n{font-size:18px;font-weight:800}
-    .kpi .l{color:var(--mut);font-size:12px;margin-top:3px}
-    .badge{font-family:var(--mono);font-size:11px;color:#d8e4ff;background:rgba(122,167,255,.12);border:1px solid rgba(122,167,255,.3);padding:5px 8px;border-radius:999px}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .pill{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--mut)}
-    .pill i{display:inline-block;width:8px;height:8px;border-radius:999px;margin-right:8px;vertical-align:middle}
-    .tbl{width:100%;border-collapse:separate;border-spacing:0}
-    .tbl th,.tbl td{padding:10px 10px;border-bottom:1px solid rgba(36,51,87,.6);vertical-align:top}
-    .tbl th{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
-    .tbl td{font-size:13px;line-height:1.5}
-    .tbl tr:last-child td{border-bottom:none}
-    .mut{color:var(--mut)}
-    .note{background:rgba(255,255,255,.03);border:1px dashed rgba(184,196,230,.35);border-radius:14px;padding:12px;color:var(--mut);font-size:13px;line-height:1.5}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:980px){.two{grid-template-columns:1fr}}
-    .callout{border-left:4px solid rgba(125,255,207,.75);padding:10px 12px;background:rgba(125,255,207,.06);border-radius:12px;color:var(--txt);font-size:13px;line-height:1.5}
-    .risk{border-left-color:rgba(255,122,122,.8);background:rgba(255,122,122,.06)}
-    .op{border-left-color:rgba(255,211,106,.9);background:rgba(255,211,106,.06)}
-    .btns{display:flex;gap:10px;flex-wrap:wrap}
-    button{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--txt);padding:10px 12px;font-size:13px}
-    button:hover{background:rgba(255,255,255,.07)}
-    .svgwrap{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;padding:10px}
-    .foot{margin-top:16px;color:var(--mut);font-size:12px}
-    .small{font-size:12px;color:var(--mut)}
-    .h2{font-size:16px;margin:0 0 10px}
-    .sep{height:1px;background:rgba(36,51,87,.7);margin:12px 0}
-  </style>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>UK Influencer Awards & Creator Events | Market Scan (with sources)</title>
+<style>
+:root{--bg:#0b1020;--card:#121a33;--line:#243057;--txt:#eaf0ff;--mut:#b9c6ef;--a:#7aa7ff;--b:#7dffcf;--c:#ffd36a;--d:#ff7aa7;--r:16px;--sh:0 18px 50px rgba(0,0,0,.35);--sans:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+*{box-sizing:border-box}body{margin:0;font-family:var(--sans);color:var(--txt);background:
+radial-gradient(1000px 600px at 15% -10%,#1c2c62 0,transparent 60%),
+radial-gradient(900px 700px at 90% 10%,#103b4a 0,transparent 55%),var(--bg)}
+a{color:var(--a);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 16px 72px}
+header{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-end}
+h1{margin:0;font-size:28px}p{margin:8px 0 0;color:var(--mut);line-height:1.55}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--mut);padding:7px 10px;border-radius:999px;font-size:12px}
+.grid{display:grid;gap:14px;margin-top:16px}
+.c2{grid-template-columns:1.2fr .8fr}@media(max-width:980px){.c2{grid-template-columns:1fr}}
+.c3{grid-template-columns:repeat(3,1fr)}@media(max-width:980px){.c3{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
+border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+.hd{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.12)}
+.hd b{font-size:14px}.tag{font-size:11px;color:#d8e4ff;border:1px solid rgba(122,167,255,.35);background:rgba(122,167,255,.12);padding:5px 8px;border-radius:999px}
+.bd{padding:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:14px;padding:10px}
+.kpi .n{font-size:18px;font-weight:800}.kpi .l{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pill{font-size:12px;color:var(--mut);border:1px solid var(--line);background:rgba(255,255,255,.03);padding:6px 10px;border-radius:999px}
+.pill i{display:inline-block;width:8px;height:8px;border-radius:999px;margin-right:8px}
+.tbl{width:100%;border-collapse:separate;border-spacing:0}
+.tbl th,.tbl td{padding:10px;border-bottom:1px solid rgba(36,48,87,.6);vertical-align:top}
+.tbl th{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.tbl tr:last-child td{border-bottom:none}
+.box{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:14px;padding:10px}
+.note{border:1px dashed rgba(185,198,239,.35);background:rgba(255,255,255,.03);border-radius:14px;padding:10px;color:var(--mut);line-height:1.5;font-size:13px}
+.call{border-left:4px solid rgba(125,255,207,.75);background:rgba(125,255,207,.07);border-radius:14px;padding:10px 12px;line-height:1.5;font-size:13px}
+.call.op{border-left-color:rgba(255,211,106,.9);background:rgba(255,211,106,.07)}
+.call.risk{border-left-color:rgba(255,122,122,.85);background:rgba(255,122,122,.07)}
+.small{font-size:12px;color:var(--mut)}
+canvas{width:100%;height:260px;display:block}
+hr{border:none;height:1px;background:rgba(36,48,87,.7);margin:12px 0}
+button{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--txt);padding:9px 11px;font-size:13px}
+button:hover{background:rgba(255,255,255,.07)}
+footer{margin-top:16px;color:var(--mut);font-size:12px;line-height:1.5}
+</style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="title">
-      <h1>UK Influencer Awards & Creator Events: Competitive Landscape</h1>
-      <p>
-        A compact market scan mapping four relevant players and the adjacent opportunity/risk context.
-        Focus: positioning, niches, audiences, and likely scale signals.
-      </p>
+    <div>
+      <h1>UK Influencer Awards & Creator Events: Market Scan</h1>
+      <p>Summary + categorised competitor ecosystem, demand indicators, and risk context. Includes cited sources and lightweight charts.</p>
     </div>
     <div class="chips">
-      <span class="chip">Format: Poster-style report</span>
-      <span class="chip">Lens: B2B vs B2C + regional vs national</span>
-      <span class="chip">Market: Fragmented, low barriers</span>
+      <span class="chip">Lens: Awards + Events</span>
+      <span class="chip">UK: fragmented, growing</span>
+      <span class="chip">Outputs: tables + charts + sources</span>
     </div>
   </header>
 
   <section class="grid">
     <div class="card">
-      <div class="hd"><b>Executive Snapshot</b><span class="badge">1-page summary</span></div>
+      <div class="hd"><b>Executive Summary</b><span class="tag">What matters</span></div>
       <div class="bd">
         <div class="kpis" id="kpis"></div>
-        <div class="sep"></div>
-        <div class="two">
-          <div class="callout">
-            <b>Market status</b><br/>
-            The landscape is fragmented across regions, verticals, and formats. Credibility signals (TV backing, strong judging panels,
-            transparent methodology) are key differentiators.
+        <hr/>
+        <div class="grid c2">
+          <div class="call">
+            <b>Core takeaway</b><br/>
+            The UK ecosystem is already busy across awards and creator events, but remains fragmented by format, geography, and audience segment. Credibility and clear value (networking, deal flow, content outcomes) are key differentiators.
           </div>
-          <div class="callout op">
-            <b>Where the white space is</b><br/>
-            Vertical specialisation (food, finance, sustainability), underserved regions, and clearer B2B vs B2C positioning.
+          <div class="call op">
+            <b>Implication for a new entrant</b><br/>
+            A defensible wedge is typically <b>vertical niche + governance/legitimacy + repeatable event playbook</b>. Regional anchors can work if national eligibility remains.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="grid cols2">
+  <section class="grid c2">
     <div class="card">
-      <div class="hd"><b>Competitor Breakdown</b><span class="badge">4 players</span></div>
+      <div class="hd"><b>Ecosystem Catalogue (Categorised)</b><span class="tag">Awards & Events</span></div>
       <div class="bd" style="padding:0">
-        <table class="tbl" id="compTable"></table>
+        <table class="tbl" id="catTable"></table>
       </div>
     </div>
 
     <div class="card">
-      <div class="hd"><b>Competitive Map</b><span class="badge">Positioning</span></div>
+      <div class="hd"><b>Simple Ecosystem Diagram</b><span class="tag">How it fits</span></div>
       <div class="bd">
-        <div class="small">Axes: <b>B2C ⇄ B2B</b> and <b>Regional ⇄ National</b>. Each dot is one competitor.</div>
-        <div class="svgwrap" id="map"></div>
-        <div class="sep"></div>
+        <div class="small">Four buckets compete for attention and sponsorship. Arrows show typical audience flow.</div>
+        <div class="box" id="svgDiagram"></div>
+        <hr/>
         <div class="row" id="legend"></div>
       </div>
     </div>
   </section>
 
-  <section class="grid cols3">
+  <section class="grid c3">
     <div class="card">
-      <div class="hd"><b>Opportunities</b><span class="badge">growth levers</span></div>
-      <div class="bd" id="ops"></div>
+      <div class="hd"><b>Counts by Category</b><span class="tag">Portfolio view</span></div>
+      <div class="bd">
+        <canvas id="barCats" width="900" height="320"></canvas>
+        <div class="note">Counts are based on the entities listed in this report. Extend by adding items to the data arrays in the script.</div>
+      </div>
     </div>
+
     <div class="card">
-      <div class="hd"><b>Risks</b><span class="badge">watch-outs</span></div>
+      <div class="hd"><b>Demand Signals</b><span class="tag">Examples</span></div>
+      <div class="bd" id="demand"></div>
+    </div>
+
+    <div class="card">
+      <div class="hd"><b>Key Risks</b><span class="tag">Launch watch-outs</span></div>
       <div class="bd" id="risks"></div>
     </div>
+  </section>
+
+  <section class="grid c2">
     <div class="card">
-      <div class="hd"><b>Strategic Plays</b><span class="badge">how to win</span></div>
-      <div class="bd" id="plays"></div>
+      <div class="hd"><b>Market Growth Indicators (Charts)</b><span class="tag">Spend & platforms</span></div>
+      <div class="bd">
+        <div class="small">These are published market estimates. They are not direct “event revenue” measures, but they indicate budget attention and ecosystem maturity.</div>
+        <hr/>
+        <div class="grid c2">
+          <div class="box">
+            <div class="small"><b>UK influencer marketing market (IMARC)</b></div>
+            <canvas id="lineImarc" width="900" height="320"></canvas>
+          </div>
+          <div class="box">
+            <div class="small"><b>UK influencer ad spend (Statista via Kolsquare)</b></div>
+            <canvas id="lineSpend" width="900" height="320"></canvas>
+          </div>
+        </div>
+        <hr/>
+        <div class="box">
+          <div class="small"><b>UK influencer marketing platform market (Grand View Research)</b></div>
+          <canvas id="linePlatform" width="900" height="320"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="hd"><b>Strategic White Space</b><span class="tag">What to build</span></div>
+      <div class="bd">
+        <div class="call op"><b>High-leverage positioning</b><br/>Choose a niche where (a) spend is meaningful, (b) awards are under-served, and (c) you can enforce credibility early with transparent rules and respected panels.</div>
+        <hr/>
+        <div class="grid">
+          <div class="call"><b>Design principle: blend recognition with ROI</b><br/>Add matchmaking, buyer/seller meetings, content studios, and clear post-event deliverables so brands and creators can justify attendance.</div>
+          <div class="call"><b>Design principle: reduce “headline creator risk”</b><br/>Build multi-track programming and community-led formats so the event still works if top creators cancel.</div>
+          <div class="call"><b>Design principle: compliance-ready verticals</b><br/>Finance and health niches can be strong, but require tighter governance and screening due to regulatory sensitivity.</div>
+        </div>
+        <hr/>
+        <div class="row">
+          <button onclick="window.print()">Print / Save as PDF</button>
+          <button onclick="toggleDensity()">Toggle density</button>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="grid">
     <div class="card">
-      <div class="hd"><b>Poster View</b><span class="badge">one-click export</span></div>
-      <div class="bd">
-        <div class="btns">
-          <button onclick="window.print()">Print / Save as PDF</button>
-          <button onclick="toggleDetails()">Toggle detail density</button>
-        </div>
-        <div class="sep"></div>
-        <div class="note">
-          This is a structured synthesis of the provided competitor set:
-          <b>UK Top Influencer Awards</b>, <b>ITV bCreator Awards</b>, <b>CreatorFest</b>, <b>National Influencer Awards</b>.
-          Extend by adding rows to the <span class="badge">data</span> array in the script.
-        </div>
-        <div class="foot">
-          Method note: This report is a positioning map and strategic context summary, not a validated market sizing study.
-        </div>
-      </div>
+      <div class="hd"><b>Sources</b><span class="tag">Links used</span></div>
+      <div class="bd" id="sources"></div>
+      <div class="bd"><footer>Note: Some sources are first-party event sites; market sizing sources are estimates and can differ by methodology.</footer></div>
     </div>
   </section>
 </div>
 
 <script>
-  // --- Data (edit here) ---
-  const data = [
-    {name:"UK Top Influencer Awards", color:"var(--a)", pos:"Regional (Newcastle) anchor + multi-category awards", niche:"Regional awards + broad categories", audience:"Creators, local sponsors, agencies", scale:"Regional brand", x:0.35, y:0.25},
-    {name:"ITV bCreator Awards", color:"var(--b)", pos:'Mass-market "Oscars for creators" with ITV backing', niche:"Mainstream creator awards", audience:"Consumers, brands, creators", scale:"High reach via media", x:0.30, y:0.85},
-    {name:"CreatorFest", color:"var(--c)", pos:"B2B creator-economy conference & networking hub", niche:"Industry networking + education", audience:"Brands, agencies, platforms, creators", scale:"Event-led community", x:0.78, y:0.65},
-    {name:"National Influencer Awards", color:"var(--d)", pos:"Emerging national platform, newer entrant", niche:"National recognition + categories", audience:"Creators, sponsors, PR", scale:"Growing entrant", x:0.45, y:0.70},
-  ];
+/* ========= DATA (edit/extend here) ========= */
+const COLORS={awards:"var(--a)",events:"var(--b)",b2b:"var(--c)",sector:"var(--d)"};
 
-  const kpis = [
-    {n:"4", l:"Mapped competitors"},
-    {n:"Fragmented", l:"Market structure"},
-    {n:"Low", l:"Entry barriers"},
-    {n:"High", l:"Credibility premium"},
-  ];
+const ecosystem = [
+  // Dedicated UK creator / influencer awards
+  {name:"UK Top Influencer Awards", type:"Dedicated creator awards", format:"Awards night", geo:"Newcastle (UK-wide eligibility)", segment:"B2C/B2B hybrid", niche:"Multi-category incl. nano/micro/macro; many niches", src:"https://uktopinfluencer.com/awards/categories/", cite:"UK Top Influencer categories (31)"},
+  {name:"ITV bCreator Awards (#BCAs)", type:"Dedicated creator awards", format:"Awards night", geo:"UK (ceremony in London)", segment:"B2B/B2C hybrid", niche:"Creators + agencies + brand campaigns", src:"https://www.bcreator.co.uk/awards/", cite:"bCreator Awards 2026 page"},
+  {name:"UK Content Creator Awards", type:"Dedicated creator awards", format:"Awards ceremony", geo:"UK", segment:"B2C", niche:"Creators across major platforms; red carpet ceremony", src:"https://ukcontentcreatorawards.com/apply-now", cite:"UK Content Creator Awards"},
+  {name:"National Influencer Awards", type:"Dedicated creator awards", format:"Awards night", geo:"Liverpool (UK-wide framing)", segment:"B2C/B2B hybrid", niche:"13 categories; creators + brands", src:"https://nationalinfluencerawards.co.uk/", cite:"National Influencer Awards" },
+  {name:"Magnified Influencer Awards (MIA)", type:"Dedicated creator awards", format:"Awards night", geo:"London", segment:"B2C", niche:"Broad categories; impact positioning", src:"https://magnifiedinfluencerawards.com/about-us/", cite:"MIA About" },
+  {name:"WISER Influencer Awards", type:"Dedicated creator awards", format:"Awards (Ireland/UK reach)", geo:"Dublin (UK & Ireland)", segment:"B2C", niche:"Many niches incl. sustainability + UGC creators", src:"https://wiserawards.com/", cite:"WISER categories list" },
 
-  const opportunities = [
-    {t:"Vertical niche awards", d:"Own a category (e.g., sustainability, food, finance) with clear criteria and specialist judges."},
-    {t:"Underserved regions", d:"Regional expansion with repeatable playbook and partner venues/sponsors."},
-    {t:"B2B productisation", d:"Turn awards into year-round B2B offerings: research, benchmarks, creator procurement, training."},
-    {t:"Trust + methodology", d:"Transparent scoring, auditing, and panels to stand out in a crowded awards market."},
-  ];
+  // Campaign / agency-focused awards
+  {name:"Global Influencer Marketing Awards (GIMAs)", type:"Campaign/agency awards", format:"Awards ceremony", geo:"London (venue listed)", segment:"B2B", niche:"Campaign categories incl finance/fintech and AI use", src:"https://influencermarketingawards.com/about/", cite:"GIMAs categories" },
+  {name:"GIMAs venue (Londoner Hotel)", type:"Campaign/agency awards", format:"Venue/ceremony info", geo:"London", segment:"B2B", niche:"Ceremony venue details", src:"https://influencermarketingawards.com/submit-your-entries/", cite:"GIMAs save-the-date/venue" },
 
-  const risks = [
-    {t:"Creator dependency", d:"Reputation and attendance risk if headline creators drop out or face controversy."},
-    {t:"Platform volatility", d:"Algorithm shifts change who is ‘hot’ and sponsor ROI narratives."},
-    {t:"Sponsor budgets cycle", d:"Event revenue depends on marketing spend cycles; diversify revenue streams."},
-    {t:"Award saturation", d:"Too many awards reduce perceived legitimacy; differentiation must be sharp."},
-  ];
+  // Creator economy conferences / festivals
+  {name:"CreatorFest (Magazine London)", type:"Creator economy conference/festival", format:"Festival / conference", geo:"London", segment:"B2B (brand/agency heavy) + creators", niche:"Two-day festival; “1,800+” claim on LinkedIn page", src:"https://uk.linkedin.com/company/creator-fest", cite:"CreatorFest LinkedIn (1,800+ claim)" },
+  {name:"TokFEST (NEC Birmingham)", type:"Fan convention / B2C festival", format:"Fan event", geo:"Birmingham", segment:"B2C", niche:"Panels, Q&As, workshops, meet & greets", src:"https://www.thenec.co.uk/whats-on/tokfest/", cite:"NEC TokFEST page" },
 
-  const plays = [
-    {t:"Pick a wedge", d:"Start with one niche + region, win credibility, then expand categories/regions."},
-    {t:"Design for repeatability", d:"Standardise judging, sponsorship packages, and event operations."},
-    {t:"Build defensible credibility", d:"Independent judges, published criteria, anti-pay-to-win safeguards."},
-    {t:"Create flywheel", d:"Community + content + data reports feeding the annual event."},
-  ];
+  // Sector/community awards
+  {name:"BritMums BiB Awards", type:"Sector/community awards", format:"Awards (parenting)", geo:"UK", segment:"B2C", niche:"Parent lifestyle bloggers/influencers", src:"https://www.britmums.com/bib-awards/", cite:"BritMums BiB Awards" },
+  {name:"Yorkshire Blogger Awards (example coverage)", type:"Regional awards", format:"Awards ceremony", geo:"Yorkshire / Leeds venues", segment:"B2C", niche:"Regional bloggers/influencers; interiors example", src:"https://www.yourharrogate.co.uk/local-news/harrogate/harrogate-influencer-wins-yorkshire-blogger-award/", cite:"Your Harrogate coverage" },
+  {name:"BDA Social Media Influencer Award", type:"Professional body award", format:"Member award", geo:"UK", segment:"B2B/professional", niche:"Dietetic professional influence on social", src:"https://www.bda.uk.com/membership/awards/social-media-influencer-award.html", cite:"BDA award page" },
 
-  // --- Render helpers ---
-  const el = (id)=>document.getElementById(id);
-  const dot = (c)=>`<i style="background:${c}"></i>`;
-  const cardList = (items, cls="callout") => items.map(x=>`
-    <div class="${cls}" style="margin:0 0 10px">
-      <b>${x.t}</b><br/><span class="mut">${x.d}</span>
-    </div>`).join("");
+  // Sector event infrastructure (beauty example)
+  {name:"Beauty & Skincare Awards UK (site)", type:"Sector awards (beauty/aesthetics)", format:"Awards (sometimes online)", geo:"UK", segment:"Sector/professional", niche:"Beauty/skincare/aesthetics awards", src:"https://thebeautyandskincareawards.co.uk/", cite:"Beauty & Skincare Awards UK" },
+  {name:"National Beauty Awards (site)", type:"Sector awards (beauty)", format:"Trade show + awards night", geo:"UK", segment:"Sector/professional", niche:"National Beauty Show + Awards Night", src:"https://nationalbeautyawards.co.uk/", cite:"National Beauty Awards" },
+];
 
-  // KPIs
-  el("kpis").innerHTML = kpis.map(k=>`
-    <div class="kpi"><div class="n">${k.n}</div><div class="l">${k.l}</div></div>
-  `).join("");
-
-  // Competitor table
-  el("compTable").innerHTML = `
-    <thead><tr>
-      <th>Player</th><th>Positioning</th><th>Niche</th><th>Target audience</th><th>Scale signals</th>
-    </tr></thead>
-    <tbody>
-      ${data.map(d=>`
-        <tr>
-          <td><div class="row" style="align-items:center;gap:8px">${dot(d.color)}<b>${d.name}</b></div></td>
-          <td>${d.pos}</td><td>${d.niche}</td><td>${d.audience}</td><td class="mut">${d.scale}</td>
-        </tr>`).join("")}
-    </tbody>`;
-
-  // Competitive map SVG
-  const W=520,H=360,p=40;
-  const ax = (v)=>p + v*(W-2*p);
-  const ay = (v)=>H-p - v*(H-2*p);
-
-  const gridLines = [0,0.25,0.5,0.75,1].map(v=>`
-    <line x1="${ax(v)}" y1="${ay(0)}" x2="${ax(v)}" y2="${ay(1)}" stroke="rgba(184,196,230,.18)"/>
-    <line x1="${ax(0)}" y1="${ay(v)}" x2="${ax(1)}" y2="${ay(v)}" stroke="rgba(184,196,230,.18)"/>
-  `).join("");
-
-  const points = data.map(d=>`
-    <g>
-      <circle cx="${ax(d.x)}" cy="${ay(d.y)}" r="8" fill="${d.color}" />
-      <text x="${ax(d.x)+12}" y="${ay(d.y)+4}" fill="rgba(234,240,255,.92)" font-size="12" font-family="Arial">${d.name}</text>
-    </g>
-  `).join("");
-
-  el("map").innerHTML = `
-    <svg width="100%" viewBox="0 0 ${W} ${H}" role="img" aria-label="Competitive positioning map">
-      <rect x="0" y="0" width="${W}" height="${H}" fill="rgba(255,255,255,.01)" />
-      ${gridLines}
-      <line x1="${ax(0)}" y1="${ay(0)}" x2="${ax(1)}" y2="${ay(0)}" stroke="rgba(184,196,230,.35)"/>
-      <line x1="${ax(0)}" y1="${ay(0)}" x2="${ax(0)}" y2="${ay(1)}" stroke="rgba(184,196,230,.35)"/>
-      <text x="${ax(0)}" y="${ay(0)-10}" fill="rgba(184,196,230,.9)" font-size="12" font-family="Arial">Regional</text>
-      <text x="${ax(1)-52}" y="${ay(0)-10}" fill="rgba(184,196,230,.9)" font-size="12" font-family="Arial">National</text>
-      <text x="${ax(0)-10}" y="${ay(0)+18}" fill="rgba(184,196,230,.9)" font-size="12" font-family="Arial" text-anchor="end">B2C</text>
-      <text x="${ax(0)-10}" y="${ay(1)+4}" fill="rgba(184,196,230,.9)" font-size="12" font-family="Arial" text-anchor="end">B2B</text>
-      <text x="${W/2}" y="${H-8}" fill="rgba(184,196,230,.7)" font-size="11" font-family="Arial" text-anchor="middle">Horizontal axis: Regional → National</text>
-      <text x="10" y="14" fill="rgba(184,196,230,.7)" font-size="11" font-family="Arial">Vertical axis: B2C → B2B</text>
-      ${points}
-    </svg>
-  `;
-
-  // Legend pills
-  el("legend").innerHTML = data.map(d=>`
-    <span class="pill">${dot(d.color)}${d.name}</span>
-  `).join("");
-
-  // Opportunities / Risks / Plays
-  el("ops").innerHTML = cardList(opportunities, "callout op");
-  el("risks").innerHTML = cardList(risks, "callout risk");
-  el("plays").innerHTML = cardList(plays, "callout");
-
-  // Toggle density
-  let dense = false;
-  function toggleDetails(){
-    dense = !dense;
-    document.querySelectorAll(".tbl td").forEach(td=>td.style.fontSize = dense ? "12px" : "13px");
-    document.querySelectorAll(".tbl td").forEach(td=>td.style.lineHeight = dense ? "1.35" : "1.5");
-    document.querySelectorAll(".callout").forEach(c=>c.style.padding = dense ? "8px 10px" : "10px 12px");
+const growth = {
+  imarc: { // UK influencer marketing market
+    label:"IMARC UK influencer marketing market",
+    points:[
+      {x:2025,y:3.1},{x:2034,y:28.3}
+    ],
+    src:"https://www.imarcgroup.com/uk-influencer-marketing-market"
+  },
+  spend: { // Statista via Kolsquare
+    label:"UK influencer marketing ad spend (Statista via Kolsquare)",
+    points:[
+      {x:2024,y:0.93},{x:2029,y:1.30}
+    ],
+    src:"https://www.kolsquare.com/en/blog/influencer-marketing-in-the-uk-2024-its-fast-and-furious"
+  },
+  platform: { // Grand View Research UK platform market
+    label:"UK influencer marketing platform market (Grand View Research)",
+    points:[
+      {x:2022,y:0.6299},{x:2030,y:3.9549}
+    ],
+    src:"https://www.grandviewresearch.com/horizon/outlook/influencer-marketing-platform-market/uk"
   }
+};
+
+const demandSignals = [
+  {t:"Category proliferation and formalised tiers", d:"UK Top Influencer Awards publishes detailed tier-based and niche categories.", src:"https://uktopinfluencer.com/awards/categories/"},
+  {t:"Mainstream credibility signals", d:"ITV bCreator positions itself as “Oscars for creators” and highlights major backing.", src:"https://www.bcreator.co.uk/awards/"},
+  {t:"Scaled B2B creator-economy events", d:"CreatorFest markets a two-day festival at Magazine London and claims “1,800+”.", src:"https://uk.linkedin.com/company/creator-fest"},
+  {t:"B2C fan conventions exist at major venues", d:"TokFEST at the NEC lists panels, workshops, and meet & greets.", src:"https://www.thenec.co.uk/whats-on/tokfest/"}
+];
+
+const risks = [
+  {t:"Legitimacy and awards fatigue", d:"Crowded awards landscape increases scepticism; new entrants need transparent judging and strong governance."},
+  {t:"Platform dependency", d:"Creator reach is sensitive to algorithm and platform shifts, impacting event draw."},
+  {t:"Headline creator concentration risk", d:"Cancellations or controversies can materially impact ticket sales and sponsor confidence."},
+  {t:"Sponsor cyclicality", d:"Awards can be treated as discretionary spend during downturns; diversify revenue streams."}
+];
+
+const kpis = [
+  {n: String(ecosystem.length), l:"Entities catalogued (this scan)"},
+  {n:"High", l:"Fragmentation (format + geo + segment)"},
+  {n:"2 key", l:"Demand formats: awards + conferences/fan events"},
+  {n:"Credibility", l:"Primary differentiator (judging + backing)"},
+];
+
+/* ========= RENDER ========= */
+const $=id=>document.getElementById(id);
+const dot=c=>`<i style="background:${c}"></i>`;
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[m]));
+const by=(arr,key)=>arr.reduce((a,x)=>((a[x[key]]=(a[x[key]]||0)+1),a),{});
+
+$("kpis").innerHTML = kpis.map(k=>`<div class="kpi"><div class="n">${esc(k.n)}</div><div class="l">${esc(k.l)}</div></div>`).join("");
+
+/* Categorised table */
+const catOrder = ["Dedicated creator awards","Creator economy conference/festival","Fan convention / B2C festival","Campaign/agency awards","Sector/community awards","Regional awards","Professional body award","Sector awards (beauty/aesthetics)","Sector awards (beauty)"];
+const cat = ecosystem.slice().sort((a,b)=>catOrder.indexOf(a.type)-catOrder.indexOf(b.type));
+$("catTable").innerHTML = `
+<thead><tr>
+  <th>Category</th><th>Entity</th><th>Format</th><th>Geography</th><th>Segment</th><th>Niche notes</th><th>Source</th>
+</tr></thead>
+<tbody>
+  ${cat.map(x=>`
+    <tr>
+      <td class="small">${esc(x.type)}</td>
+      <td><b>${esc(x.name)}</b></td>
+      <td>${esc(x.format)}</td>
+      <td>${esc(x.geo)}</td>
+      <td class="small">${esc(x.segment)}</td>
+      <td class="small">${esc(x.niche)}</td>
+      <td class="small"><a href="${x.src}" target="_blank" rel="noopener">${esc(x.cite||"Link")}</a></td>
+    </tr>`).join("")}
+</tbody>`;
+
+/* Legend + simple diagram */
+const legendItems = [
+  {k:"Dedicated awards", c:COLORS.awards},
+  {k:"Conferences/festivals", c:COLORS.events},
+  {k:"B2B campaign awards", c:COLORS.b2b},
+  {k:"Sector/regional/pro body", c:COLORS.sector},
+];
+$("legend").innerHTML = legendItems.map(x=>`<span class="pill">${dot(x.c)}${esc(x.k)}</span>`).join("");
+
+$("svgDiagram").innerHTML = (()=> {
+  const W=760,H=250;
+  const bx=(x,y,w,h,t,c)=>`
+    <g>
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="rgba(255,255,255,.02)" stroke="rgba(36,48,87,.9)"/>
+      <circle cx="${x+16}" cy="${y+22}" r="6" fill="${c}"/>
+      <text x="${x+30}" y="${y+26}" fill="rgba(234,240,255,.95)" font-size="13" font-family="Arial" font-weight="700">${t}</text>
+    </g>`;
+  const arr=(x1,y1,x2,y2)=>`
+    <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(185,198,239,.55)" stroke-width="2"/>
+    <polygon points="${x2},${y2} ${x2-8},${y2-4} ${x2-8},${y2+4}" fill="rgba(185,198,239,.75)"/>`;
+  return `
+  <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Ecosystem diagram">
+    ${bx(20,30,240,72,"Dedicated awards",COLORS.awards)}
+    ${bx(20,140,240,72,"Sector/regional awards",COLORS.sector)}
+    ${bx(290,30,240,72,"Creator conferences",COLORS.events)}
+    ${bx(290,140,240,72,"B2B campaign awards",COLORS.b2b)}
+    ${bx(560,85,180,72,"Sponsors & media", "rgba(255,255,255,.85)")}
+    ${arr(260,66,290,66)}
+    ${arr(260,176,290,176)}
+    ${arr(530,66,560,121)}
+    ${arr(530,176,560,121)}
+    <text x="20" y="18" fill="rgba(185,198,239,.75)" font-size="12" font-family="Arial">Typical competition for attention/sponsorship across formats</text>
+  </svg>`;
+})();
+
+/* Demand + risks blocks */
+$("demand").innerHTML = demandSignals.map(x=>`
+  <div class="call op" style="margin:0 0 10px">
+    <b>${esc(x.t)}</b><br/><span class="small">${esc(x.d)}</span><br/>
+    <span class="small">Source: <a href="${x.src}" target="_blank" rel="noopener">${x.src.replace(/^https?:\/\//,"")}</a></span>
+  </div>`).join("");
+
+$("risks").innerHTML = risks.map(x=>`
+  <div class="call risk" style="margin:0 0 10px">
+    <b>${esc(x.t)}</b><br/><span class="small">${esc(x.d)}</span>
+  </div>`).join("");
+
+/* Sources section */
+const sources = [
+  {label:"UK Top Influencer Awards categories (31) + tier definitions", url:"https://uktopinfluencer.com/awards/categories/"},
+  {label:"ITV bCreator Awards page (claims “Oscars for creators”, largest independent)", url:"https://www.bcreator.co.uk/awards/"},
+  {label:"Canon press release on ITV bCreator Awards sponsorship (context)", url:"https://www.canon.co.uk/press-centre/press-releases/2025/07/canon-celebrates-the-power-of-creators-at-the-itv-bcreatortm-awards/"},
+  {label:"UK Content Creator Awards (red carpet, press coverage)", url:"https://ukcontentcreatorawards.com/apply-now"},
+  {label:"National Influencer Awards (13 categories)", url:"https://nationalinfluencerawards.co.uk/"},
+  {label:"Magnified Influencer Awards (about/venue info)", url:"https://magnifiedinfluencerawards.com/about-us/"},
+  {label:"WISER Influencer Awards (category list incl. sustainability, UGC creators)", url:"https://wiserawards.com/"},
+  {label:"Global Influencer Marketing Awards (categories incl. Finance/Fintech, AI)", url:"https://influencermarketingawards.com/about/"},
+  {label:"Global Influencer Marketing Awards (date/venue info)", url:"https://influencermarketingawards.com/submit-your-entries/"},
+  {label:"CreatorFest LinkedIn page (two-day festival + “1,800+” claim)", url:"https://uk.linkedin.com/company/creator-fest"},
+  {label:"TokFEST at NEC Birmingham (panels/workshops/meet & greets)", url:"https://www.thenec.co.uk/whats-on/tokfest/"},
+  {label:"BritMums BiB Awards (parent lifestyle influencer network)", url:"https://www.britmums.com/bib-awards/"},
+  {label:"Yorkshire Blogger Awards example coverage", url:"https://www.yourharrogate.co.uk/local-news/harrogate/harrogate-influencer-wins-yorkshire-blogger-award/"},
+  {label:"BDA Social Media Influencer Award", url:"https://www.bda.uk.com/membership/awards/social-media-influencer-award.html"},
+  {label:"Beauty & Skincare Awards UK (sector event infrastructure)", url:"https://thebeautyandskincareawards.co.uk/"},
+  {label:"National Beauty Awards (sector event infrastructure)", url:"https://nationalbeautyawards.co.uk/"},
+  {label:"IMARC UK influencer marketing market overview (2025 $3.1B → 2034 $28.3B)", url:"https://www.imarcgroup.com/uk-influencer-marketing-market"},
+  {label:"Kolsquare blog citing Statista (UK ad spend £930m 2024 → £1.3bn 2029)", url:"https://www.kolsquare.com/en/blog/influencer-marketing-in-the-uk-2024-its-fast-and-furious"},
+  {label:"Grand View Research (UK influencer marketing platform market $629.9m 2022 → $3,954.9m 2030)", url:"https://www.grandviewresearch.com/horizon/outlook/influencer-marketing-platform-market/uk"}
+];
+$("sources").innerHTML = `
+  <div class="note">All URLs are included below for verification. Market figures are estimates; use as directional indicators.</div>
+  <hr/>
+  <div class="grid">${sources.map(s=>`
+    <div class="box">
+      <b>${esc(s.label)}</b><br/>
+      <span class="small"><a href="${s.url}" target="_blank" rel="noopener">${s.url}</a></span>
+    </div>`).join("")}
+  </div>`;
+
+/* ========= CHARTS (tiny canvas utilities) ========= */
+function drawAxes(ctx,W,H,pad,xt,yt){
+  ctx.strokeStyle="rgba(185,198,239,.35)"; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(pad, H-pad); ctx.lineTo(W-pad, H-pad); ctx.lineTo(W-pad, H-pad); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(pad, H-pad); ctx.lineTo(pad, pad); ctx.stroke();
+  ctx.fillStyle="rgba(185,198,239,.8)"; ctx.font="12px Arial";
+  ctx.fillText(xt, W/2-40, H-10); ctx.save(); ctx.translate(12,H/2+40); ctx.rotate(-Math.PI/2); ctx.fillText(yt,0,0); ctx.restore();
+}
+
+function drawBar(canvas, labels, values){
+  const ctx=canvas.getContext("2d"), W=canvas.width, H=canvas.height, pad=38;
+  ctx.clearRect(0,0,W,H);
+  drawAxes(ctx,W,H,pad,"Category","Count");
+  const max=Math.max(...values,1), bw=(W-2*pad)/values.length;
+  values.forEach((v,i)=>{
+    const x=pad+i*bw+10, h=(H-2*pad)*(v/max), y=H-pad-h;
+    ctx.fillStyle=["rgba(122,167,255,.75)","rgba(125,255,207,.75)","rgba(255,211,106,.75)","rgba(255,122,167,.75)"][i%4];
+    ctx.fillRect(x,y,bw-20,h);
+    ctx.fillStyle="rgba(234,240,255,.9)"; ctx.font="12px Arial";
+    ctx.fillText(v, x+(bw-20)/2-4, y-6);
+    ctx.fillStyle="rgba(185,198,239,.85)"; ctx.font="11px Arial";
+    const t=labels[i].length>14?labels[i].slice(0,13)+"…":labels[i];
+    ctx.fillText(t, x, H-pad+18);
+  });
+}
+
+function drawLine(canvas, points, title, unit){
+  const ctx=canvas.getContext("2d"), W=canvas.width, H=canvas.height, pad=38;
+  ctx.clearRect(0,0,W,H);
+  drawAxes(ctx,W,H,pad,"Year", unit);
+  const xs=points.map(p=>p.x), ys=points.map(p=>p.y);
+  const xmin=Math.min(...xs), xmax=Math.max(...xs), ymin=0, ymax=Math.max(...ys)*1.1;
+  const X=v=>pad+(v-xmin)*(W-2*pad)/(xmax-xmin||1);
+  const Y=v=>H-pad-(v-ymin)*(H-2*pad)/(ymax-ymin||1);
+
+  // grid
+  ctx.strokeStyle="rgba(185,198,239,.15)"; ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=pad+i*(H-2*pad)/4;
+    ctx.beginPath(); ctx.moveTo(pad,y); ctx.lineTo(W-pad,y); ctx.stroke();
+  }
+
+  // line
+  ctx.strokeStyle="rgba(122,167,255,.9)"; ctx.lineWidth=3; ctx.beginPath();
+  points.forEach((p,i)=>{ const x=X(p.x), y=Y(p.y); if(!i) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
+  ctx.stroke();
+
+  // points + labels
+  points.forEach(p=>{
+    const x=X(p.x), y=Y(p.y);
+    ctx.fillStyle="rgba(125,255,207,.95)"; ctx.beginPath(); ctx.arc(x,y,5,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle="rgba(234,240,255,.9)"; ctx.font="12px Arial";
+    ctx.fillText(`${p.x}`, x-12, H-pad+18);
+    ctx.fillStyle="rgba(185,198,239,.9)"; ctx.font="12px Arial";
+    ctx.fillText(`${p.y.toFixed(2)}`, x-16, y-10);
+  });
+
+  ctx.fillStyle="rgba(234,240,255,.92)"; ctx.font="12px Arial";
+  ctx.fillText(title, pad, 16);
+}
+
+/* Counts by category */
+const counts = by(ecosystem,"type");
+const labels = Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+drawBar($("barCats"), labels, labels.map(k=>counts[k]));
+
+/* Growth charts */
+drawLine($("lineImarc"), growth.imarc.points, "IMARC: UK influencer marketing market (USD bn)", "USD bn");
+drawLine($("lineSpend"), growth.spend.points, "Statista via Kolsquare: UK ad spend (GBP bn)", "GBP bn");
+drawLine($("linePlatform"), growth.platform.points, "Grand View: UK influencer platform market (USD bn)", "USD bn");
+
+/* Density toggle */
+let dense=false;
+function toggleDensity(){
+  dense=!dense;
+  document.querySelectorAll(".tbl td").forEach(td=>{td.style.fontSize=dense?"12px":"13px"; td.style.lineHeight=dense?"1.35":"1.5";});
+}
+
+/* Helpful: ensure canvases stay crisp on high DPI */
+function hiDPI(canvas){
+  const ratio=window.devicePixelRatio||1;
+  const cssW=canvas.clientWidth, cssH=canvas.clientHeight;
+  canvas.width=Math.round(cssW*ratio); canvas.height=Math.round(cssH*ratio);
+  const ctx=canvas.getContext("2d"); ctx.setTransform(ratio,0,0,ratio,0,0);
+}
+["barCats","lineImarc","lineSpend","linePlatform"].forEach(id=>hiDPI($(id)));
+window.addEventListener("resize",()=>location.reload()); // simplest for a tiny single-file report
 </script>
 </body>
 </html>
